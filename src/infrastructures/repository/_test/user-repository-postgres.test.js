@@ -24,7 +24,7 @@ describe('UserRepositoryPostgres', () => {
       await expect(userRepositoryPostgres.verifyAvailableUsername('alzasyauqi')).rejects.toThrow(InvariantError)
     })
 
-    it('should not InvariantError when username available', async () => {
+    it('should not throw InvariantError when username available', async () => {
       // arrange
       const userRepositoryPostgres = new UserRepositoryPostgres(pool, {})
 
@@ -53,6 +53,7 @@ describe('UserRepositoryPostgres', () => {
     })
 
     it('should return registered user correctly', async () => {
+      // arrange
       const registerUser = new RegisterUser({
         username: 'alzasyauqi',
         password: 'secret_password',
@@ -70,6 +71,29 @@ describe('UserRepositoryPostgres', () => {
         username: 'alzasyauqi',
         fullname: 'Alza Syauqi'
       }))
+    })
+  })
+
+  describe('getPasswordByUsername function', () => {
+    it('should throw InvariantError when username not available', async () => {
+      const userRepositoryPostgres = new UserRepositoryPostgres(pool, {})
+
+      await expect(userRepositoryPostgres.getPasswordByUsername('alzasyauqi')).rejects.toThrow(InvariantError)
+    })
+
+    it('should not throw InvariantError when username available', async () => {
+      const registerUser = new RegisterUser({
+        username: 'alzasyauqi',
+        password: 'secret_password',
+        fullname: 'Alza Syauqi'
+      })
+      const fakeIdGenerator = () => '123' // stub!
+      const userRepositoryPostgres = new UserRepositoryPostgres(pool, fakeIdGenerator)
+      await userRepositoryPostgres.addUser(registerUser)
+
+      const password = await userRepositoryPostgres.getPasswordByUsername(registerUser.username)
+
+      expect(password).toEqual(registerUser.password)
     })
   })
 })
