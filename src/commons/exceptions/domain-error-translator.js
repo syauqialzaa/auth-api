@@ -13,10 +13,14 @@ DomainErrorTranslator._directories = {
   'REGISTER_USER.USERNAME_CONTAIN_RESTRICTED_CHARACTER': new InvariantError('tidak dapat membuat user baru karena username mengandung karakter terlarang.'),
   'REGISTERED_USER.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat menampilkan user baru karena properti yang dibutuhkan tidak ada.'),
   'REGISTERED_USER.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat menampilkan user baru karena tipe data tidak sesuai.'),
+  'LOGIN_USER.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat login user karena properti yang dibutuhkan tidak ada.'),
+  'LOGIN_USER.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat login user karena tipe data tidak sesuai.'),
   'NEW_AUTHENTICATION.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat membuat authentikasi baru karena properti yang dibutuhkan tidak ada.'),
   'NEW_AUTHENTICATION.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat membuat authentikasi baru karena tipe data tidak sesuai.'),
-  'LOGIN_USER.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat login user karena properti yang dibutuhkan tidak ada.'),
-  'LOGIN_USER.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat login user karena tipe data tidak sesuai.')
+  'REFRESH_AUTHENTICATION.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat refresh authentikasi karena token refresh yang dibutuhkan tidak ada.'),
+  'REFRESH_AUTHENTICATION.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat refresh authentikasi karena tipe data tidak sesuai.'),
+  'DELETE_AUTHENTICATION.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('tidak dapat menghapus authentikasi karena token refresh yang dibutuhkan tidak ada.'),
+  'DELETE_AUTHENTICATION.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tidak dapat menghapus authentikasi karena tipe data tidak sesuai.')
 }
 
 module.exports = DomainErrorTranslator
