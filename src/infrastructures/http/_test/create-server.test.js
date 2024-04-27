@@ -12,6 +12,7 @@ describe('HTTP server', () => {
 
   afterEach(async () => {
     await UsersTableTestHelper.cleanTable()
+    await AuthenticationsTableTestHelper.cleanTable()
   })
 
   it('should response 404 when request unregistered route', async () => {
@@ -397,7 +398,7 @@ describe('HTTP server', () => {
 
     it('should return 400 if refresh token not registered in database', async () => {
       const server = await createServer(container)
-      const refreshToken = await container.getInstance(AuthenticationTokenManager.name).createRefreshToken({ username: 'someone' })
+      const refreshToken = await container.getInstance(AuthenticationTokenManager.name).createRefreshToken({ username: 'alzasyauqi' })
 
       const response = await server.inject({
         method: 'PUT',
