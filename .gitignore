@@ -3,3 +3,5 @@ coverage
 package-lock.json
 .env
 .test.env
+auth-api-key-pair.pem
+auth-api-key-pair.pem:Zone.Identifier
