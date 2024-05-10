@@ -23,6 +23,14 @@ const createServer = async container => {
     }
   ])
 
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: () => ({
+      value: 'Hello World!'
+    })
+  })
+
   server.ext('onPreResponse', (request, h) => {
     // get response context from request
     const { response } = request
