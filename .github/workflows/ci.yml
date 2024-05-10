@@ -48,7 +48,7 @@ jobs:
         PGPORT: 5432
         PGUSER: postgres
         PGPASSWORD: postgres
-        PGDATABASE: forum_api_test
+        PGDATABASE: auth_api_test
         ACCESS_TOKEN_KEY: secret
         REFRESH_TOKEN_KEY: terces
         ACCESS_TOKEN_AGE: 3600
